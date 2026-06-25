@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date surprise</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page page--active" id="step-1">
+      <h1>💌 T'es partante pour un date avec moi ?</h1>
+      <div class="buttons-row">
+        <button class="btn btn-yes" id="yes-button">Oui 💖</button>
+        <button class="btn btn-no" id="no-button">Non 🙈</button>
+      </div>
+    </main>
+
+    <main class="page" id="step-2">
+      <h1>✨ Très bon choix, tu veux aller où mon choubidou ?</h1>
+      <label for="activity-select">Choisis un lieu ou propose ton idée :</label>
+      <select id="activity-select">
+        <option value="cinema">Cinéma 🎬</option>
+        <option value="restaurant">Restaurant 🍽️</option>
+        <option value="bowling">Bowling 🎳</option>
+        <option value="escape-game">Escape game 🔐</option>
+        <option value="karaoke">Karaoké 🎤</option>
+        <option value="laser-game">Laser game 🔫</option>
+        <option value="parc-attractions">Parc d'attractions 🎢</option>
+        <option value="musee">Musée 🖼️</option>
+        <option value="aquarium">Aquarium 🐠</option>
+        <option value="promenade">Promenade 🌸</option>
+        <option value="autre">Autre... ✨</option>
+      </select>
+      <input
+        type="text"
+        id="custom-activity"
+        class="hidden"
+        placeholder="Propose ton activité 💡"
+      />
+      <button class="btn btn-next" id="activity-next">Valider ✅</button>
+    </main>
+
+    <main class="page" id="step-3">
+      <h1>⏰ Et à quelle heure ?</h1>
+      <label for="time-input">Choisis l'heure :</label>
+      <input type="time" id="time-input" />
+      <button class="btn btn-next" id="time-next">Valider ✅</button>
+    </main>
+
+    <main class="page" id="step-4">
+      <h1>🍽️ Et enfin, tu veux manger quoi ? Je t'invite !</h1>
+      <label for="food-select">Choisis un plat :</label>
+      <select id="food-select">
+        <option value="sushis">Sushis 🍣</option>
+        <option value="pizza">Pizza 🍕</option>
+        <option value="steak">Steak frites 🥩</option>
+        <option value="pasta">Pâtes 🍝</option>
+        <option value="salade">Salade gourmande 🥗</option>
+        <option value="autre">Autre... ✨</option>
+      </select>
+      <input
+        type="text"
+        id="custom-food"
+        class="hidden"
+        placeholder="Propose un plat 🍲"
+      />
+      <button class="btn btn-next" id="food-next">Valider ✅</button>
+    </main>
+
+    <main class="page" id="step-5">
+      <h1>📅 Pour finir, choisis une date.</h1>
+      <label for="date-input">Date du rendez-vous :</label>
+      <input type="date" id="date-input" />
+      <button class="btn btn-next" id="date-next">Valider ✅</button>
+    </main>
+
+    <main class="page" id="final-step">
+      <h1>Récapitulatif</h1>
+      <p id="recap"></p>
+      <button class="btn btn-reset" id="reset-button">Recommencer</button>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

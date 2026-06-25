@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Date surprise</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page page--active" id="admin-page">
+      <h1>📊 Tableau de réponses</h1>
+      <p>Entrez votre token administrateur pour accéder aux réponses.</p>
+      <div class="admin-row">
+        <input type="password" id="admin-token" placeholder="Token admin" />
+        <button class="btn btn-next" id="load-responses">Charger</button>
+      </div>
+      <div id="admin-error" class="admin-error hidden"></div>
+      <table id="responses-table" class="responses-table hidden">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Réponse</th>
+            <th>Activité</th>
+            <th>Heure</th>
+            <th>Date</th>
+            <th>Plat</th>
+            <th>Reçu le</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </main>
+    <script src="admin.js"></script>
+  </body>
+</html>
