@@ -21,6 +21,11 @@ const dateInput = document.getElementById('date-input');
 const dateNext = document.getElementById('date-next');
 const recap = document.getElementById('recap');
 const resetButton = document.getElementById('reset-button');
+const formAnswer = document.getElementById('form-answer');
+const formActivity = document.getElementById('form-activity');
+const formTime = document.getElementById('form-time');
+const formDate = document.getElementById('form-date');
+const formFood = document.getElementById('form-food');
 
 const dateInfo = {
   activity: '',
@@ -52,13 +57,12 @@ function moveNoButtonRandomly() {
 
 yesButton.addEventListener('click', () => {
   dateInfo.answer = 'oui';
-  sendPartialResponse();
   showStep(1);
 });
 
 noButton.addEventListener('click', () => {
   dateInfo.answer = 'non';
-  sendPartialResponse();
+  submitForm();
   moveNoButtonRandomly();
 });
 
@@ -111,20 +115,34 @@ dateNext.addEventListener('click', () => {
     return;
   }
   dateInfo.date = dateInput.value;
-  sendPartialResponse();
+  submitForm();
   showRecap();
   showStep(5);
 });
 
-function sendPartialResponse() {
-  fetch('/api/submit', {
+function submitForm() {
+  formAnswer.value = dateInfo.answer;
+  formActivity.value = dateInfo.activity;
+  formTime.value = dateInfo.time;
+  formDate.value = dateInfo.date;
+  formFood.value = dateInfo.food;
+
+  const data = new URLSearchParams();
+  data.append('form-name', 'date-surprise');
+  data.append('answer', dateInfo.answer);
+  data.append('activity', dateInfo.activity);
+  data.append('time', dateInfo.time);
+  data.append('date', dateInfo.date);
+  data.append('food', dateInfo.food);
+
+  fetch('/', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: JSON.stringify(dateInfo),
+    body: data.toString(),
   }).catch((error) => {
-    console.warn('Impossible d'envoyer la réponse:', error);
+    console.warn('Impossible d'envoyer le formulaire:', error);
   });
 }
 
